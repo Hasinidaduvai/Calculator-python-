@@ -1,0 +1,47 @@
+# Initialize an empty dictionary to store grades for different subjects
+grades = {}
+
+# Function to input grades for subjects
+def input_grades():
+    num_subjects = int(input("Enter the number of subjects: "))
+    for i in range(num_subjects):
+        subject = input("Enter the name of subject {}: ".format(i+1))
+        grade = float(input("Enter the grade for {}: ".format(subject)))
+        grades[subject] = grade
+
+# Function to calculate the average grade
+def calculate_average_grade():
+    total_grade = sum(grades.values())
+    average_grade = total_grade / len(grades)
+    return average_grade
+
+# Function to calculate letter grade
+def calculate_letter_grade(average_grade):
+    if average_grade >= 90:
+        return "A"
+    elif average_grade >= 80:
+        return "B"
+    elif average_grade >= 70:
+        return "C"
+    elif average_grade >= 60:
+        return "D"
+    else:
+        return "F"
+
+# Main program
+input_grades()
+average_grade = calculate_average_grade()
+letter_grade = calculate_letter_grade(average_grade)
+
+print("Overall Grade:")
+print("Average Grade: {:.2f}".format(average_grade))
+print("Letter Grade: {}".format(letter_grade))
+#result
+Enter the number of subjects: 2
+Enter the name of subject 1: Math
+Enter the grade for Math: 85
+Enter the name of subject 2: English
+Enter the grade for English: 90
+Overall Grade:
+Average Grade: 87.50
+Letter Grade: B
